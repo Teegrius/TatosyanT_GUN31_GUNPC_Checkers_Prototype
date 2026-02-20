@@ -1,0 +1,38 @@
+# Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Visual Studio / Rider / VS Code
+*.csproj
+*.sln
+*.user
+*.suo
+*.userprefs
+*.pidb
+ExportedObj/
+.vscode/
+
+# OS файлы
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Пакеты и кэш
+/Packages/
+*.unitypackage
+
+# Burst и большие runtime-файлы
+Library/PackageCache/com.unity.burst*
+Library/PackageCache/*.dll
+Library/PackageCache/*.so
+Library/PackageCache/*.dylib
+
+# ArtifactDB и ShaderCache
+Library/ArtifactDB*
+Library/ShaderCache*
+Library/Il2cppBuildCache*

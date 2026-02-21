@@ -23,7 +23,6 @@ Thumbs.db
 ehthumbs.db
 
 # Пакеты и кэш
-/Packages/
 *.unitypackage
 
 # Burst и большие runtime-файлы

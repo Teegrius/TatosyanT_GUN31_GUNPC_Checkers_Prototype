@@ -26,7 +26,10 @@ public class Battlefield : MonoBehaviour
                 Cell cell = cellObj.AddComponent<Cell>();
                 cell.position = new Vector2Int(x, y);
                 cell.isBlack = (x + y) % 2 == 1;
-                cell.renderer.material = cell.isBlack ? blackMaterial : whiteMaterial;
+                cell.GetComponent<Renderer>().material = cell.isBlack ? blackMaterial : whiteMaterial;
+                
+                cell.Init();
+
                 cells[x, y] = cell;
             }
         }

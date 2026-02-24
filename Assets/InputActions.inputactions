@@ -4,12 +4,12 @@
     "maps": [
         {
             "name": "Gameplay",
-            "id": "d3a035e3-1471-48a4-a0ef-3e750d101115",
+            "id": "77ed3968-e0e6-4de1-96eb-ddd19063b31e",
             "actions": [
                 {
                     "name": "Select",
                     "type": "Button",
-                    "id": "f77ee6c6-1b05-45ee-b356-edd212b79a62",
+                    "id": "47ce4666-caf2-42d7-b032-9453e6ac0e79",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -18,7 +18,7 @@
                 {
                     "name": "Cancel",
                     "type": "Button",
-                    "id": "1c8daef3-1a64-4e0f-accb-0606d3ad4545",
+                    "id": "4e9749ab-a024-430b-a855-ce7dddd7eef1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -27,7 +27,7 @@
                 {
                     "name": "Confirm",
                     "type": "Button",
-                    "id": "f3c5817a-354d-4c6d-a275-e30026909fd5",
+                    "id": "f8d4039a-824c-4305-bbce-37df8124f2bf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -36,7 +36,7 @@
                 {
                     "name": "Restart",
                     "type": "Button",
-                    "id": "2316d40e-823d-4172-801c-540f6083774f",
+                    "id": "656fbde8-f40c-449d-9c4c-0c2034418f9c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -46,7 +46,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "bd04e21a-b4e3-4ae7-8e1c-d9dbc845a433",
+                    "id": "0de50d37-4981-43cd-8b4d-f9f8986673a3",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -57,7 +57,7 @@
                 },
                 {
                     "name": "",
-                    "id": "2120f4de-e165-42ca-b587-fa21790b8fcf",
+                    "id": "6ed0a8aa-9dbf-410e-9022-42cd8d249856",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
@@ -68,7 +68,7 @@
                 },
                 {
                     "name": "",
-                    "id": "dbf74bf8-d9f7-479a-84bc-d62d9e9c061f",
+                    "id": "dabcd60d-ae80-4ddd-b287-228413af9cae",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
@@ -79,7 +79,7 @@
                 },
                 {
                     "name": "",
-                    "id": "605a25de-a397-4d0f-8702-00174751f503",
+                    "id": "bfeaff6c-5706-4881-a368-a9181a668c50",
                     "path": "<Keyboard>/tab",
                     "interactions": "Hold(duration=2)",
                     "processors": "",

@@ -7,16 +7,19 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public Unit unit;
     public bool isBlack;
 
-    private Material originalMaterial;
-    public new Renderer renderer;
+    private static readonly int COLOR_ID = Shader.PropertyToID("_Color");
+
+    private Color originalColor;
+    private Renderer renderer;
+
     private bool isHovered;
     private bool isSelected;
     private bool isPossibleMove;
 
-    void Awake()
+    public void Init()
     {
         renderer = GetComponent<Renderer>();
-        originalMaterial = renderer.material;
+        originalColor = renderer.material.color;
     }
 
     public void HighlightHover(bool enable)
@@ -41,19 +44,19 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     {
         if (isSelected)
         {
-            renderer.material.color = Color.yellow;
+            renderer.material.SetColor(COLOR_ID, Color.yellow);
         }
         else if (isPossibleMove)
         {
-            renderer.material.color = Color.green;
+            renderer.material.SetColor(COLOR_ID, Color.green);
         }
         else if (isHovered)
         {
-            renderer.material.color = Color.red;
+            renderer.material.SetColor(COLOR_ID, Color.red);
         }
         else
         {
-            renderer.material = originalMaterial;
+            renderer.material.SetColor(COLOR_ID, originalColor);
         }
     }
 

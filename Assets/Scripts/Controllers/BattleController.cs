@@ -111,8 +111,9 @@ public class BattleController : MonoBehaviour
     private void CalculatePossibleMoves(Unit unit)
     {
         possibleMoves.Clear();
+
         Vector2Int pos = unit.cell.position;
-        int dir = unit.team == Team.White ? 1 : -1;
+        int dir = unit.team == Team.White ? -1 : 1;
         bool isKing = unit.type == PieceType.King;
 
         List<Vector2Int> directions = new List<Vector2Int>
@@ -130,6 +131,11 @@ public class BattleController : MonoBehaviour
         {
             AddMovesInDirection(unit, pos, d, isKing);
         }
+
+        foreach (var move in possibleMoves)
+        {
+            move.HighlightPossibleMove(true);
+        }
     }
 
     private void AddMovesInDirection(Unit unit, Vector2Int pos, Vector2Int dir, bool isKing)
@@ -139,6 +145,7 @@ public class BattleController : MonoBehaviour
         if (nextCell == null) return;
 
         if (nextCell.unit == null)
+
         {
             possibleMoves.Add(nextCell);
             if (isKing) AddMovesInDirection(unit, nextPos, dir, true);
@@ -198,8 +205,6 @@ public class BattleController : MonoBehaviour
             CheckMandatoryCaptures();
             state = GameState.SelectPiece;
         }
-
-        state = GameState.SelectPiece;
     }
 
     private void CheckPromotion(Unit unit)

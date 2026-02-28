@@ -11,7 +11,6 @@ public class BattleController : MonoBehaviour
     private Unit selectedUnit;
     private List<Cell> possibleMoves = new List<Cell>();
     private bool mustCapture;
-    private List<(Unit, Cell)> mandatoryCaptures = new List<(Unit, Cell)>();
 
     void Awake()
     {
@@ -121,7 +120,7 @@ public class BattleController : MonoBehaviour
             new Vector2Int(1, dir),
             new Vector2Int(-1, dir)
         };
-        if (isKing || mustCapture)
+        if (isKing)
         {
             directions.Add(new Vector2Int(1, -dir));
             directions.Add(new Vector2Int(-1, -dir));
@@ -145,7 +144,6 @@ public class BattleController : MonoBehaviour
         if (nextCell == null) return;
 
         if (nextCell.unit == null)
-
         {
             possibleMoves.Add(nextCell);
             if (isKing) AddMovesInDirection(unit, nextPos, dir, true);
@@ -190,7 +188,9 @@ public class BattleController : MonoBehaviour
 
         CheckPromotion(unit);
 
-        bool canChain = CheckForChainCaptures(unit);
+        // Проверяем цепной ход ТОЛЬКО если был взятие
+        bool canChain = isCapture && CheckForChainCaptures(unit);
+
         if (canChain)
         {
             mustCapture = true;
@@ -202,7 +202,6 @@ public class BattleController : MonoBehaviour
         {
             mustCapture = false;
             SwitchTurn();
-            CheckMandatoryCaptures();
             state = GameState.SelectPiece;
         }
     }
@@ -227,26 +226,6 @@ public class BattleController : MonoBehaviour
     private void SwitchTurn()
     {
         currentTurn = currentTurn == PlayerTurn.White ? PlayerTurn.Black : PlayerTurn.White;
-    }
-
-    private void CheckMandatoryCaptures()
-    {
-        mandatoryCaptures.Clear();
-        for (int x = 0; x < 8; x++)
-        {
-            for (int y = 0; y < 8; y++)
-            {
-                Unit u = battlefield.cells[x, y].unit;
-                if (u != null && u.team == (Team)currentTurn)
-                {
-                    if (CanCapture(u))
-                    {
-                        mandatoryCaptures.Add((u, null));
-                    }
-                }
-            }
-        }
-        mustCapture = mandatoryCaptures.Count > 0;
     }
 
     private bool CanCapture(Unit unit)
